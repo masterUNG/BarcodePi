@@ -7,17 +7,24 @@ import androidthai.in.th.barcodepi.utility.MyManager;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MyManager myManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 //        Create SQLite Database (First Time)
-        MyManager myManager = new MyManager(MainActivity.this);
+        myManager = new MyManager(MainActivity.this);
 
 //        Test Add Value
+//        testAddValue();
+
+    }   // Main Method
+
+    private void testAddValue() {
         String[] strings = new String[]{
-                "13",
+                null,
                 "testName",
                 "testBar",
                 "testPrice",
@@ -25,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 "testPath",
                 "testItem"};
         myManager.addNewValueToSQLite(strings);
-
-    }   // Main Method
+    }
 
 
 }   // Main Class

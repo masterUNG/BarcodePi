@@ -29,7 +29,7 @@ public class MyOpenHelper extends SQLiteOpenHelper{
     public MyOpenHelper(Context context) {
         super(context, database_name, null, database_version);
         this.context = context;
-    }
+    }   // Constructor
 
     @Override
     public void onCreate(SQLiteDatabase db) {
