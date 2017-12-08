@@ -6,6 +6,8 @@ package androidthai.in.th.barcodepi.utility;
 
 public class MyConstant {
 
+    private String[] connectedStrings = new String[]{"On", "Off"};
+
     private String[] columnProductStrings = new String[]{
             "id",
             "NameProduct",
@@ -14,6 +16,10 @@ public class MyConstant {
             "Detail",
             "PathImage",
             "Item"};
+
+    public String[] getConnectedStrings() {
+        return connectedStrings;
+    }
 
     public String[] getColumnProductStrings() {
         return columnProductStrings;
