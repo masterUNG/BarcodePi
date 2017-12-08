@@ -15,6 +15,7 @@ import androidthai.in.th.barcodepi.R;
 
 public class DetailProductFragment extends Fragment{
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
