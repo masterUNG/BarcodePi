@@ -27,6 +27,7 @@ public class ListProductFragment extends Fragment {
     private String[] connectedStrings;
     private int indexAnIn = 0;
     private Handler handler;
+    private boolean statusSynDataABoolean = true; // true สภาวะที่จะ Update Data
 
 
 //    Create Main Method
@@ -50,6 +51,16 @@ public class ListProductFragment extends Fragment {
 //        ToDo
         checkInternet();
         changeSubTitle();
+
+//        Check Update
+        if (statusSynDataABoolean && (indexAnIn == 0)) {
+            Log.d("12DecV1", "Update Working");
+            statusSynDataABoolean = false;
+
+
+
+        }
+
 
 //        Delay
         handler = new Handler();

@@ -17,6 +17,12 @@ public class MyConstant {
             "PathImage",
             "Item"};
 
+    private String urlGetAllProductString = "http://androidthai.in.th/pi/getAllProductMaster.php";
+
+    public String getUrlGetAllProductString() {
+        return urlGetAllProductString;
+    }
+
     public String[] getConnectedStrings() {
         return connectedStrings;
     }
