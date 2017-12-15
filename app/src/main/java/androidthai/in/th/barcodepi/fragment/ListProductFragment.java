@@ -13,9 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.json.JSONArray;
+
 import androidthai.in.th.barcodepi.MainActivity;
 import androidthai.in.th.barcodepi.R;
 import androidthai.in.th.barcodepi.utility.MyConstant;
+import androidthai.in.th.barcodepi.utility.ReadAllData;
 
 /**
  * Created by masterung on 7/12/2017 AD.
@@ -30,7 +33,8 @@ public class ListProductFragment extends Fragment {
     private boolean statusSynDataABoolean = true; // true สภาวะที่จะ Update Data
 
 
-//    Create Main Method
+
+    //    Create Main Method
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -57,7 +61,7 @@ public class ListProductFragment extends Fragment {
             Log.d("12DecV1", "Update Working");
             statusSynDataABoolean = false;
 
-
+            mySynchronize();
 
         }
 
@@ -71,6 +75,43 @@ public class ListProductFragment extends Fragment {
             }
         }, 10000);
     }
+
+    private void mySynchronize() {
+
+        try {
+
+            String tag = "15DecV1";
+
+            //        Read All Data From  JSON
+            MyConstant myConstant = new MyConstant();
+            ReadAllData readAllData = new ReadAllData(getActivity());
+            readAllData.execute(myConstant.getUrlGetAllProductString());
+
+            String jsonString = readAllData.get();
+            Log.d(tag, "JSON ==> " + jsonString);
+
+            JSONArray jsonArray = new JSONArray(jsonString);
+
+
+            for (int i=0; i<jsonArray.length(); i+=1) {
+
+
+
+            }   // For
+
+
+
+
+            //        Delete All SQLite and Update New Date to SQLte
+
+            //        Share Operated to Create ListView
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }   // mySyn
 
     private void checkInternet() {
 
@@ -86,11 +127,15 @@ public class ListProductFragment extends Fragment {
 
             if (networkInfo.isConnected() && networkInfo != null) {
 
+//                Internet OK
                 indexAnIn = 0;
 
             } else {
 
+//                Internet False
                 indexAnIn = 1;
+                statusSynDataABoolean = true;
+
 
             }
 
